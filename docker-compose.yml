@@ -1,0 +1,15 @@
+version: '3.0'
+
+volumes:
+  myjenkins-home:
+    driver: local
+
+services:
+  jenkins:
+    image: waltervargas/jenkins:master
+    ports:
+      - 8888:8080
+    volumes:
+      - myjenkins-home:/var/jenkins_home
+    cap_add:
+      - ALL
